@@ -1,2 +1,2 @@
 # user-image-blog
-I created this website using html-css-javascript
+I developed this website using html-css-javascript
