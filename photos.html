@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Photos | Bhawna's photography</title>
+      <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+      <link rel="stylesheet" href="site.css" type="text/css" />
+    </head>
+    <body>
+      <header>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="photos.html">Photos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <aside>
+          <img src="images/photologo.jpg" alt="Bhawna's Photography" />
+        </aside>
+  
+        <article>
+          <h1>Photos</h1>
+  
+          <section class="columns-desktop">
+            <div class="photos">
+              <img src="images/nature-photos.jpg" alt="Nature Photos" />
+              <div class="columns">
+                <div class="title">Nature Photos</div>
+                <div class="price">Rs120.95</div>
+              </div>
+              <p class="desc">Mesmerizing nature click</p>
+              <button data-order="nature-photos">Order</button>
+            </div>
+  
+            <div class="photos">
+              <img src="images/street-photos.jpg" alt="Street Photos" />
+              <div class="columns">
+                <div class="title">street photos</div>
+                <div class="price">Rs200.95</div>
+              </div>
+              <p class="desc">street view</p>
+              <button data-order="street-photos">Order</button>
+            </div>
+
+            <div class="photos">
+                <img src="images/innovative-photos.jpg" alt="innovative Photos" />
+                <div class="columns">
+                  <div class="title">innovative photos</div>
+                  <div class="price">Rs190.95</div>
+                </div>
+                <p class="desc">innovative view</p>
+                <button data-order="innovative-photos">Order</button>
+            </div>
+          </section>
+
+          <section class="columns-desktop">
+            <div class="photos">
+              <img src="images/wildlife-photos.jpg" alt="Wildlife Photos" />
+              <div class="columns">
+                <div class="title">Wildlife Photos</div>
+                <div class="price">Rs180.95</div>
+              </div>
+              <p class="desc">Wonderful Wildlife click</p>
+              <button data-order="wildlife-photos">Order</button>
+            </div>
+
+            <div class="photos">
+                <img src="images/random-photos.jpg" alt="random Photos" />
+                <div class="columns">
+                  <div class="title">Random Photos</div>
+                  <div class="price">Rs120.95</div>
+                </div>
+                <p class="desc">Rocking Random click</p>
+                <button data-order="random-photos">Order</button>
+              </div>
+
+              <div class="photos">
+                <img src="images/fashion-photos.jpg" alt="Fashion Photos" />
+                <div class="columns">
+                  <div class="title">Fashion Photos</div>
+                  <div class="price">Rs120.95</div>
+                </div>
+                <p class="desc">Fancy Fashion</p>
+                <button data-order="fashion-photos">Order</button>
+              </div>
+
+        </article>
+      </main>
+  
+      <footer>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="photos.html">Photos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </body>
+    <script>
+      window.addEventListener("DOMContentLoaded", function(e) {
+        const orderButtons = document.querySelectorAll("button[data-order]");
+  
+        orderButtons.forEach(function(button) {
+          
+          button.addEventListener("click", function(e) {
+            const button = e.currentTarget;
+            const container = button.parentNode;
+  
+            const order = {
+              id: (id = button.getAttribute("data-order")),
+              title: container.querySelector(".title").innerText,
+              price: container.querySelector(".price").innerText,
+              desc: container.querySelector(".desc").innerText
+            };
+  
+            localStorage.setItem("order", JSON.stringify(order));
+  
+            const url = window.location.href.replace("photos.html", "order.html");
+            window.location.href = url;
+          });
+        });
+      });
+    </script>
+  </html>
+  
